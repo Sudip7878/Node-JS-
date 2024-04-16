@@ -1,0 +1,20 @@
+const fs = require('fs')
+const path = require('path')
+
+const location = path.join(__dirname,'crud')
+const target = `${location}/apple.txt`
+
+fs.writeFileSync(target,"this is the content inside the target folder")
+
+fs.readFile(target,'utf8',(err,data)=>{
+    console.log(data)
+})
+
+fs.appendFile(target,"iam new data appended",'utf-8',(err,data)=>{
+    console.log(data)
+})
+
+fs.rename(target,`${location}/fruit.txt`,(err,data)=>{
+    console.log(data)
+})
+
