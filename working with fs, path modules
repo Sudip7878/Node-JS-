@@ -1,0 +1,7 @@
+const path = require('path')
+const fs = require('fs')
+const location = path.join(__dirname,'folder')
+//creating files inside the target location//
+for(i=0;i<5;i++){
+    fs.writeFileSync(location+`/file${i}.txt`,'this is new file inside the target location')
+}
