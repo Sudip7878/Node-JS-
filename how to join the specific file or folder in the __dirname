@@ -1,0 +1,3 @@
+const path = require('path')
+const location = path.join(__dirname,'folder')
+console.log(location)
