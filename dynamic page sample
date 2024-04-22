@@ -1,0 +1,7 @@
+//to set dynamic page
+
+app.set('view engine',''ejs)
+
+app.get('/profile',(req,res)=>{
+    res.render('profile');
+})
