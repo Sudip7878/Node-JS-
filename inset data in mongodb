@@ -1,0 +1,13 @@
+const dbconnect = require('./dbconnect')
+
+const main =async()=>{
+    const db = await dbconnect()
+    const result = await db.insertOne(
+        {name:'note 5',brand:'vivo',price:340,category:'moblie'}
+    )
+    if(result.acknowledge){
+        console.log("data inserted")
+    }
+}
+
+main()
