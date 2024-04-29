@@ -1,0 +1,11 @@
+const dbconnect = require('./dbconnect')
+const express = require('express')
+const app = express()
+
+app.get('/',async(req,res)=>{
+    const data = await dbconnect()
+    const result = await data.find().toArray()
+    res.send(result)
+})
+
+app.listen(4501)
