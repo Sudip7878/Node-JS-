@@ -1,0 +1,10 @@
+const dbconnect = require('./dbconnect')
+
+main =async()=>{
+    const data = await dbconnect()
+    const result = await data.deleteMany({name:'max pro 5 ultra'})
+    console.log(result)
+
+}
+
+main()
