@@ -1,0 +1,9 @@
+const dbconnect = require('./dbconnect');
+
+async function showdata(){
+    let data = await dbconnect()
+    let result = await data.updateMany({name:'note 5'},{$set:{name:'max pro 5 ultra'}}) //update multiple records 
+    console.log(result)
+}
+
+showdata()
