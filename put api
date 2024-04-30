@@ -1,0 +1,9 @@
+app.put('/',async(req,res)=>{
+    let data = await dbconnect()
+    let result = data.updateMany(
+        {name: req.body.name},
+        { $set: req.body}
+    )
+})
+
+app.listen(4501)
