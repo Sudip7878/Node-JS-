@@ -1,0 +1,52 @@
+const mongoose = require('mongoose')
+
+const main = async () => {
+    await mongoose.connect("mongodb://localhost:27017/e-comm")
+    const ProductSchema = new mongoose.Schema({
+        name: String,
+        price: Number,
+        brand: String,
+        category: String
+    })
+
+    const ProductsModel = mongoose.model('products', ProductSchema)
+    let data = new ProductsModel({
+        name: "m80",
+        price: 10090,
+        brand: "xyz",
+        category: 'mobile'
+    })
+    let result = await data.save()
+    console.log(result)
+}
+
+const updatedb = async () => {
+    await mongoose.connect("mongodb://localhost:27017/e-comm")
+    const ProductSchema = new mongoose.Schema({
+        name: String,
+        price: Number,
+        brand: String,
+        category: String
+    })
+    const product = mongoose.model('products', ProductSchema)
+    let data = await product.updateMany(
+        { name: "m80" },
+        { $set: { price: 1500 } }
+    )
+    console.log(data)
+}
+
+const deletedb = async () => {
+    await mongoose.connect("mongodb://localhost:27017/e-comm")
+    const ProductSchema = new mongoose.Schema({
+        name: String,
+        price: Number,
+        brand: String,
+        category: String
+    })
+    const product = await mongoose.model("products",ProductSchema)
+    const data = await product.deleteMany({name:"m8"})
+    console.log(data)
+}
+
+deletedb()
