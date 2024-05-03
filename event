@@ -1,0 +1,18 @@
+const express = require('express')
+const app = express()
+const EventEmitter = require('events')
+const myEmitter = new EventEmitter()
+
+let count = 0
+//event listen
+myEmitter.on("event called",()=>{
+    count++
+    console.log(count)
+})
+
+app.get('/',(req,res)=>{
+    res.send("api called")
+    myEmitter.emit("event called") //event trigger
+})
+
+app.listen(4501)
