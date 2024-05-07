@@ -1,0 +1,14 @@
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+
+const connect=async()=>{
+
+    mongoose.connect('mongodb://localhost:27017/e-comm')  //path of your database
+    const productschema = new mongoose.Schema({})  //defining schema
+    const product = mongoose.model('products',productschema);  //defining model
+    let data = await product.find()
+    console.log(data)
+}  
+connect()
+app.listen(4250)
